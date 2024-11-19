@@ -8,6 +8,17 @@ let productsList = []
 let carts = []
 
 
+// ======= scroll reveal
+
+const sr = ScrollReveal({
+    distance: '60px',
+    duration: 1500,
+})
+
+
+
+
+
 const initApp = async ()=> {
    await fetch("data.json")
     .then(resbonse=> resbonse.json())
@@ -17,6 +28,8 @@ const initApp = async ()=> {
             carts = JSON.parse(localStorage.getItem("products"))
             addCartToHtml()
             addQuantityToHtml()
+            sr.reveal('.cart', {origin: 'left'});
+            sr.reveal('.item',{interval: 100, origin: 'right'});
         } else {
             addProductsToHtml()
         }
@@ -308,6 +321,3 @@ modal.addEventListener('click', (e)=> {
 })
 
 
-// document.addEventListener("click", (e)=> {
-//     console.log(e.target)
-// })
