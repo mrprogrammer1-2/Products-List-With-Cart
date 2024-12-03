@@ -4,6 +4,7 @@ let quantitySpan = document.querySelector(".total-quantity")
 let modalContainer = document.querySelector(".modal-container")
 let modal = document.querySelector(".modal")
 let order = document.querySelector('.order')
+const body = document.querySelector("body") 
 let productsList = []
 let carts = []
 
@@ -267,6 +268,7 @@ cartHtml.addEventListener("click", (e)=> {
 cartHtml.addEventListener("click", (e)=> {
     if (e.target.classList.contains("confirm")) {
         modalContainer.style.display = "block"
+        body.style.overflow = 'hidden'
         addToModal()
     }
 })
@@ -313,6 +315,7 @@ const addToModal = ()=> {
 modal.addEventListener('click', (e)=> {
     if (e.target.classList.contains("new")) {
         modalContainer.style.display = "none"
+        body.style.overflow = 'auto'
         carts = []
         addToMemory()
         addCartToHtml()
